@@ -1,5 +1,6 @@
 import ListGroup from "./components/ListGroup";
-import Alert from "./components/Alert";
+import Alert     from "./components/Alert";
+import Button    from "./components/Button";
 
 function App() {
   let items = ["Strawberry", "Milk", "Oats", "Eggs", "Juice"];
@@ -12,6 +13,7 @@ function App() {
     <div>
       <ListGroup items={items} heading="Food" onSelectItem={handleSelectItem} />
       <Alert>Everything is fine</Alert>
+      <Button color='success' onClick={() => console.log('Pow')}>Boom</Button>
     </div>
   );
 }
