@@ -1,8 +1,10 @@
+// @ts-nocheck  // removes annoying parameter any type messages for file
 import ReactImg from "./assets/react-core-concepts.png"; // import images from assets folder
 import ComponentsImg from "./assets/components.png";
 
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
 
+// @ts-ignore // disables annoying parameter any type message for function
 function genRandomInt(max) {
   // random number generator
   return Math.floor(Math.random() * (max + 1));
