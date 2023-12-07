@@ -1,6 +1,6 @@
 // @ts-nocheck  // removes annoying parameter any type messages for file
 import ReactImg from "./assets/react-core-concepts.png"; // import images from assets folder
-import { CORE_CONCEPTS } from "./data.js";
+import { CORE_CONCEPTS } from "./data";
 
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
 
@@ -25,12 +25,14 @@ function Header() {
   );
 }
 
-function CoreConcept(props) {
+function CoreConcept({image, title, description}) {
+  // object converted via destructuring
   return (
+    // equivalent to parameter props.title etc.
     <li>
-      <img src={props.image} alt={props.title} />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
     </li>
   );
 }
@@ -43,21 +45,10 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            />
-            <CoreConcept
-              title={CORE_CONCEPTS[1].title}
-              description={CORE_CONCEPTS[1].description}
-              image={CORE_CONCEPTS[1].image}
-            />
-            <CoreConcept
-              title={CORE_CONCEPTS[2].title}
-              description={CORE_CONCEPTS[2].description}
-              image={CORE_CONCEPTS[2].image}
-            />
+            <CoreConcept {...CORE_CONCEPTS[0]} />
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+            {/* same function as below */}
             <CoreConcept
               title={CORE_CONCEPTS[3].title}
               description={CORE_CONCEPTS[3].description}

@@ -1,4 +1,3 @@
-// @ts-nocheck  // removes annoying parameter any type messages for file
 import componentsImg from './assets/components.png';
 import propsImg from './assets/config.png';
 import jsxImg from './assets/jsx-ui.png';
