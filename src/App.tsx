@@ -1,6 +1,6 @@
 // @ts-nocheck  // removes annoying parameter any type messages for file
 import ReactImg from "./assets/react-core-concepts.png"; // import images from assets folder
-import ComponentsImg from "./assets/components.png";
+import { CORE_CONCEPTS } from "./data.js";
 
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
 
@@ -44,24 +44,24 @@ function App() {
           <h2>Core Concepts</h2>
           <ul>
             <CoreConcept
-              title="Components"
-              description="First component in React"
-              image={ComponentsImg}
+              title={CORE_CONCEPTS[0].title}
+              description={CORE_CONCEPTS[0].description}
+              image={CORE_CONCEPTS[0].image}
             />
             <CoreConcept
-              title="Concepts"
-              description="Second component in React"
-              image={ComponentsImg}
+              title={CORE_CONCEPTS[1].title}
+              description={CORE_CONCEPTS[1].description}
+              image={CORE_CONCEPTS[1].image}
             />
             <CoreConcept
-              title="Props"
-              description="Third component in React"
-              image={ComponentsImg}
+              title={CORE_CONCEPTS[2].title}
+              description={CORE_CONCEPTS[2].description}
+              image={CORE_CONCEPTS[2].image}
             />
             <CoreConcept
-              title="Love"
-              description="Fourth component in React"
-              image={ComponentsImg}
+              title={CORE_CONCEPTS[3].title}
+              description={CORE_CONCEPTS[3].description}
+              image={CORE_CONCEPTS[3].image}
             />
           </ul>
         </section>
