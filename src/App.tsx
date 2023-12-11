@@ -5,6 +5,10 @@ import CoreConcept from "./components/CoreConcept/CoreConcept";
 import TabButton from "./components/TabButton/TabButton";
 
 function App() {
+  function handleSelect(button) {
+    console.log(button)
+  }
+
   return (
     <div>
       <Header />
@@ -26,11 +30,15 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            {/* onSelect passes argument to TabButton function
+            arrow function activaes when TabButton is executed (which executes onClick)
+            arrow function executes handleSelect function above and passes along an argument, the name of selected button */}
+            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+          Content
         </section>
       </main>
     </div>
