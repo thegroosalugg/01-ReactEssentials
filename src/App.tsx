@@ -1,12 +1,13 @@
 // @ts-nocheck  // removes annoying parameter any type messages for file
 import { CORE_CONCEPTS } from "./data";
+import { EXAMPLES } from "./data";
 import { useState } from 'react';
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept/CoreConcept";
 import TabButton from "./components/TabButton/TabButton";
 
 function App() {
-  const [dynamicContent, setContent] = useState();
+  const [dynamicContent, setContent] = useState('jsx');
 
   function handleSelect(clickedButton) {
     setContent(clickedButton)
@@ -41,7 +42,13 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {dynamicContent}
+          <div id="tab-content">
+            <h3>{EXAMPLES[dynamicContent].title}</h3>
+            <p>{EXAMPLES[dynamicContent].description}</p>
+            <pre>
+              <code>{EXAMPLES[dynamicContent].code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
