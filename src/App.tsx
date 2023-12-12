@@ -1,12 +1,15 @@
 // @ts-nocheck  // removes annoying parameter any type messages for file
 import { CORE_CONCEPTS } from "./data";
+import { useState } from 'react';
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept/CoreConcept";
 import TabButton from "./components/TabButton/TabButton";
 
 function App() {
-  function handleSelect(button) {
-    console.log(button)
+  const [dynamicContent, setContent] = useState();
+
+  function handleSelect(clickedButton) {
+    setContent(clickedButton)
   }
 
   return (
@@ -31,14 +34,14 @@ function App() {
           <h2>Examples</h2>
           <menu>
             {/* onSelect passes argument to TabButton function
-            arrow function activaes when TabButton is executed (which executes onClick)
+            arrow function activaes when TabButton is executed (which executes onClick inside TabButton)
             arrow function executes handleSelect function above and passes along an argument, the name of selected button */}
             <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
             <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          Content
+          {dynamicContent}
         </section>
       </main>
     </div>
