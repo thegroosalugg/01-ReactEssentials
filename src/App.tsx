@@ -18,7 +18,8 @@ function App() {
 
   let tabContent = <p>Select a topic</p>; // default tabContent is set prior to rendering dynamicContent
 
-  if (dynamicContent) { // if dynamicContent is set, via TabButton (onSelect paramater) then the below code is rendered
+  if (dynamicContent) {
+    // if dynamicContent is set, via TabButton (onSelect paramater) then the below code is rendered
     tabContent = (
       <div id="tab-content">
         <h3>{EXAMPLES[dynamicContent].title}</h3>
@@ -54,12 +55,32 @@ function App() {
             {/* onSelect passes argument to TabButton function
             arrow function activaes when TabButton is executed (which executes onClick inside TabButton)
             arrow function executes handleSelect function above and passes along an argument, the name of selected button */}
-            <TabButton onSelect={() => handleSelect("components")}>
+            <TabButton
+              highlighted={dynamicContent === "components"}
+              onSelect={() => handleSelect("components")}
+            >
               Components
             </TabButton>
-            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+            {/* highlightes passed as an argument to TabButton, will pass if dynamicContent matches onSelect,
+            so 'active' CSS class is removed on non active topics */}
+            <TabButton
+              highlighted={dynamicContent === "jsx"}
+              onSelect={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              highlighted={dynamicContent === "props"}
+              onSelect={() => handleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              highlighted={dynamicContent === "state"}
+              onSelect={() => handleSelect("state")}
+            >
+              State
+            </TabButton>
           </menu>
           {tabContent}
         </section>
