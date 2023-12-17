@@ -2,8 +2,9 @@
 // useState allows the dynamic rendering of content
 import { useState } from "react";
 import { EXAMPLES } from "../../data";
+import Tabs from "../Tabs";
 import TabButton from "./TabButton";
-import Section from "../Section"
+import Section from "../Section";
 
 export default function Examples() {
   const [dynamicContent, setContent] = useState();
@@ -29,40 +30,49 @@ export default function Examples() {
     );
   }
 
+    /* onClick passes argument to TabButton function
+  arrow function activates when TabButton is executed
+  arrow function executes handleSelect function above and passes along an argument, the name of selected button
+  highlighted passed as an argument to TabButton, will pass if dynamicContent matches onClick,
+  so 'active' CSS class is removed on non active topics
+
+  Tabs is a component to render buttons inside a menu. Not very useful in this app but used anyway to demonstrate general
+  reusable components React structure */
+
   return (
-    <Section title="Examples" id="examples" >
-      <menu>
-        {/* onClick passes argument to TabButton function
-        arrow function activates when TabButton is executed
-        arrow function executes handleSelect function above and passes along an argument, the name of selected button */}
-        <TabButton
-          highlighted={dynamicContent === "components"}
-          onClick={() => handleSelect("components")}
-        >
-          Components
-        </TabButton>
-        {/* highlighted passed as an argument to TabButton, will pass if dynamicContent matches onClick,
-        so 'active' CSS class is removed on non active topics */}
-        <TabButton
-          highlighted={dynamicContent === "jsx"}
-          onClick={() => handleSelect("jsx")}
-        >
-          JSX
-        </TabButton>
-        <TabButton
-          highlighted={dynamicContent === "props"}
-          onClick={() => handleSelect("props")}
-        >
-          Props
-        </TabButton>
-        <TabButton
-          highlighted={dynamicContent === "state"}
-          onClick={() => handleSelect("state")}
-        >
-          State
-        </TabButton>
-      </menu>
-      {tabContent}
+    <Section title="Examples" id="examples">
+      <Tabs
+        buttons={
+          <>
+            <TabButton
+              highlighted={dynamicContent === "components"}
+              onClick={() => handleSelect("components")}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              highlighted={dynamicContent === "jsx"}
+              onClick={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              highlighted={dynamicContent === "props"}
+              onClick={() => handleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              highlighted={dynamicContent === "state"}
+              onClick={() => handleSelect("state")}
+            >
+              State
+            </TabButton>
+          </>
+        }
+      >
+        {tabContent}
+      </Tabs>
     </Section>
   );
 }
