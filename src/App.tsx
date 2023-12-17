@@ -1,11 +1,10 @@
 // @ts-nocheck  // removes annoying parameter any type messages for file
-import { CORE_CONCEPTS } from "./data";
 import { EXAMPLES } from "./data";
 import { useState } from "react";
 // useState allows the dynamic rendering of content
 import Header from "./components/Header/Header";
-import CoreConcept from "./components/CoreConcept/CoreConcept";
-import TabButton from "./components/TabButton/TabButton";
+import TabButton from "./components/Examples/TabButton";
+import CoreConcepts from "./components/CoreConcept/CoreConcepts";
 
 function App() {
   const [dynamicContent, setContent] = useState();
@@ -32,19 +31,11 @@ function App() {
   }
 
   return (
-    <div>
+    // content is wrapped in React fragments instead of empty divs
+    <>
       <Header />
       <main>
-        <section id="core-concepts">
-          <h2>Core Concepts</h2>
-          <ul>
-            {/* original code below. Core concepts transformed into an iterator
-            key is currently not required, but is set as it is read by React */}
-            {CORE_CONCEPTS.map((conceptItem) => (
-              <CoreConcept key={conceptItem.title} {...conceptItem} />
-            ))}
-          </ul>
-        </section>
+        <CoreConcepts />
         <section id="examples">
           <h2>Examples</h2>
           <menu>
@@ -81,24 +72,8 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </div>
+    </>
   );
 }
 
 export default App;
-
-// ORIGINAL CoreConcept code for reference to see what it looks like in full
-{
-  /* <CoreConcept {...CORE_CONCEPTS[0]} />
-<CoreConcept {...CORE_CONCEPTS[1]} />
-<CoreConcept {...CORE_CONCEPTS[2]} /> */
-}
-
-// same function as below
-{
-  /* <CoreConcept
-  title={CORE_CONCEPTS[3].title}
-  description={CORE_CONCEPTS[3].description}
-  image={CORE_CONCEPTS[3].image}
-/> */
-}
