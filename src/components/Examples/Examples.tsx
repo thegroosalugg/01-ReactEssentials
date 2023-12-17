@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { EXAMPLES } from "../../data";
 import TabButton from "./TabButton";
+import Section from "../Section"
 
 export default function Examples() {
   const [dynamicContent, setContent] = useState();
@@ -29,8 +30,7 @@ export default function Examples() {
   }
 
   return (
-    <section id="examples">
-      <h2>Examples</h2>
+    <Section title="Examples" id="examples" >
       <menu>
         {/* onSelect passes argument to TabButton function
         arrow function activaes when TabButton is executed (which executes onClick inside TabButton)
@@ -63,6 +63,6 @@ export default function Examples() {
         </TabButton>
       </menu>
       {tabContent}
-    </section>
+    </Section>
   );
 }
