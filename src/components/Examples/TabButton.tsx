@@ -1,5 +1,5 @@
 // @ts-nocheck  // removes annoying parameter any type messages for file
-import "./TabButton.css";
+import "./Examples.css";
 
 export default function TabButton({ children, onSelect, highlighted }) {
   return (
