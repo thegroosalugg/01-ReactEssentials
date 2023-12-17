@@ -42,6 +42,8 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples">
       <Tabs
+        // CustomTag="menu" // structure kept to show how it would look, but a custom value of menu is already set.
+        // the value can be a sting for built in components, or start with a Capital letter for custom components
         buttons={
           <>
             <TabButton
