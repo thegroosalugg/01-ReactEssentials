@@ -1,11 +1,10 @@
 // @ts-nocheck  // removes annoying parameter any type messages for file
 import "./Examples.css";
 
-export default function TabButton({ children, onSelect, highlighted }) {
+export default function TabButton({ children, highlighted, ...props }) {
   return (
     <li>
-      {/* && works like a ternary operator ? but without the else statement : as only 1 outcome is required */}
-      <button className={highlighted ? 'active' : ''} onClick={onSelect}>{children}</button>
+      <button className={highlighted ? 'active' : ''} {...props}>{children}</button>
     </li>
   );
 }

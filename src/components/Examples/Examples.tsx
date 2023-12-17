@@ -17,7 +17,7 @@ export default function Examples() {
   let tabContent = <p>Select a topic</p>; // default tabContent is set prior to rendering dynamicContent
 
   if (dynamicContent) {
-    // if dynamicContent is set, via TabButton (onSelect paramater) then the below code is rendered
+    // if dynamicContent is set, via TabButton onClick then the below code is rendered
     tabContent = (
       <div id="tab-content">
         <h3>{EXAMPLES[dynamicContent].title}</h3>
@@ -32,32 +32,32 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples" >
       <menu>
-        {/* onSelect passes argument to TabButton function
-        arrow function activaes when TabButton is executed (which executes onClick inside TabButton)
+        {/* onClick passes argument to TabButton function
+        arrow function activates when TabButton is executed
         arrow function executes handleSelect function above and passes along an argument, the name of selected button */}
         <TabButton
           highlighted={dynamicContent === "components"}
-          onSelect={() => handleSelect("components")}
+          onClick={() => handleSelect("components")}
         >
           Components
         </TabButton>
-        {/* highlightes passed as an argument to TabButton, will pass if dynamicContent matches onSelect,
+        {/* highlighted passed as an argument to TabButton, will pass if dynamicContent matches onClick,
         so 'active' CSS class is removed on non active topics */}
         <TabButton
           highlighted={dynamicContent === "jsx"}
-          onSelect={() => handleSelect("jsx")}
+          onClick={() => handleSelect("jsx")}
         >
           JSX
         </TabButton>
         <TabButton
           highlighted={dynamicContent === "props"}
-          onSelect={() => handleSelect("props")}
+          onClick={() => handleSelect("props")}
         >
           Props
         </TabButton>
         <TabButton
           highlighted={dynamicContent === "state"}
-          onSelect={() => handleSelect("state")}
+          onClick={() => handleSelect("state")}
         >
           State
         </TabButton>
